@@ -15,7 +15,7 @@ const MAX_NAME_LENGTH = 100;
 router.get('/versions', (_req: Request, res: Response) => {
   try {
     const config = readConfig();
-    res.json({ versions: config.versions });
+    res.json({ versions: config.versions, activeId: config.activeId ?? null });
   } catch (err) {
     res.status(500).json({ error: 'Failed to read versions' });
   }

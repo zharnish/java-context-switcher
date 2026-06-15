@@ -1,0 +1,210 @@
+﻿cmd : npm warn config optional Use `--omit=optional` to exclude optional 
+dependencies, or
+At line:1 char:1
++ cmd /c npm run dist 2>&1 | Out-File -FilePath dist-output.txt -Encodi ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm warn config...ependencies, or 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm warn config `--include=optional` to include them.
+npm warn config
+npm warn config       Default value does install optional deps unless 
+otherwise omitted.
+npm warn Unknown user config "always-auth". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "http-proxy". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+
+> java-context-switcher@1.0.0 dist
+> npm run build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder
+
+npm warn config optional Use `--omit=optional` to exclude optional 
+dependencies, or
+npm warn config `--include=optional` to include them.
+npm warn config
+npm warn config       Default value does install optional deps unless 
+otherwise omitted.
+npm warn Unknown env config "http-proxy". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "always-auth". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "http-proxy". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+
+> java-context-switcher@1.0.0 build
+> npm run build --prefix backend && npm run build --prefix frontend && tsc -p electron/tsconfig.json
+
+npm warn config optional Use `--omit=optional` to exclude optional 
+dependencies, or
+npm warn config `--include=optional` to include them.
+npm warn config
+npm warn config       Default value does install optional deps unless 
+otherwise omitted.
+npm warn Unknown env config "http-proxy". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "always-auth". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "http-proxy". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+
+> java-context-switcher-backend@1.0.0 build
+> tsc
+
+npm warn config optional Use `--omit=optional` to exclude optional 
+dependencies, or
+npm warn config `--include=optional` to include them.
+npm warn config
+npm warn config       Default value does install optional deps unless 
+otherwise omitted.
+npm warn Unknown env config "http-proxy". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "always-auth". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "http-proxy". This will stop working in the next 
+major version of npm. See `npm help npmrc` for supported config options.
+
+> java-context-switcher-frontend@0.0.0 build
+> tsc -b && vite build
+
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 691 modules transformed.
+rendering chunks...
+computing gzip size...
+[2m../backend/dist/public/[22m[32mindex.html                 [39m[1m[2m  0.48 kB[22m[1m[22m[2m Γöé gzip:   0.31 kB[22m
+[2m../backend/dist/public/[22m[35massets/index-CfkJyshZ.css  [39m[1m[2m231.25 kB[22m[1m[22m[2m Γöé gzip:  30.69 kB[22m
+[2m../backend/dist/public/[22m[36massets/index-DpDe0DpO.js   [39m[1m[2m427.51 kB[22m[1m[22m[2m Γöé gzip: 127.37 kB[22m
+[32mΓ£ô built in 4.40s[39m
+  ΓÇó electron-builder  version=24.13.3 os=10.0.26100
+  ΓÇó loaded configuration  file=package.json ("build" field)
+  ΓÇó author is missed in the package.json  appPackageFile=C:\repo\develop\java-context-switcher\package.json
+  ΓÇó packaging       platform=win32 arch=x64 electron=31.7.7 appOutDir=dist-electron\win-unpacked
+  ΓÇó downloading     url=https://github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.6.0/winCodeSign-2.6.0.7z size=5.6 MB parts=1
+  ΓÇó downloaded      url=https://github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.6.0/winCodeSign-2.6.0.7z duration=1.462s
+  Γ¿» cannot execute  cause=exit status 2
+                    out=
+    7-Zip (a) 21.07 (x64) : Copyright (c) 1999-2021 Igor Pavlov : 2021-12-26
+    
+    Scanning the drive for archives:
+    1 file, 5635384 bytes (5504 KiB)
+    
+    Extracting archive: C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\294256095.7z
+    --
+    Path = C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\294256095.7z
+    Type = 7z
+    Physical Size = 5635384
+    Headers Size = 1492
+    Method = LZMA2:24m LZMA:20 BCJ2
+    Solid = +
+    Blocks = 2
+    
+    
+    Sub items Errors: 2
+    
+    Archives with Errors: 1
+    
+    Sub items Errors: 2
+    
+                    errorOut=ERROR: Cannot create symbolic link : A required privilege is not held by the client. : C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\294256095\darwin\10.12\lib\libcrypto.dylib
+    ERROR: Cannot create symbolic link : A required privilege is not held by the client. : C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\294256095\darwin\10.12\lib\libssl.dylib
+    
+                    command='C:\repo\develop\java-context-switcher\node_modules\7zip-bin\win\x64\7za.exe' x -bd 'C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\294256095.7z' '-oC:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\294256095'
+                    workingDir=C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign
+  ΓÇó Above command failed, retrying 3 more times
+  ΓÇó downloading     url=https://github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.6.0/winCodeSign-2.6.0.7z size=5.6 MB parts=1
+  ΓÇó downloaded      url=https://github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.6.0/winCodeSign-2.6.0.7z duration=1.51s
+  Γ¿» cannot execute  cause=exit status 2
+                    out=
+    7-Zip (a) 21.07 (x64) : Copyright (c) 1999-2021 Igor Pavlov : 2021-12-26
+    
+    Scanning the drive for archives:
+    1 file, 5635384 bytes (5504 KiB)
+    
+    Extracting archive: C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\430640875.7z
+    --
+    Path = C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\430640875.7z
+    Type = 7z
+    Physical Size = 5635384
+    Headers Size = 1492
+    Method = LZMA2:24m LZMA:20 BCJ2
+    Solid = +
+    Blocks = 2
+    
+    
+    Sub items Errors: 2
+    
+    Archives with Errors: 1
+    
+    Sub items Errors: 2
+    
+                    errorOut=ERROR: Cannot create symbolic link : A required privilege is not held by the client. : C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\430640875\darwin\10.12\lib\libcrypto.dylib
+    ERROR: Cannot create symbolic link : A required privilege is not held by the client. : C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\430640875\darwin\10.12\lib\libssl.dylib
+    
+                    command='C:\repo\develop\java-context-switcher\node_modules\7zip-bin\win\x64\7za.exe' x -bd 'C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\430640875.7z' '-oC:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\430640875'
+                    workingDir=C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign
+  ΓÇó Above command failed, retrying 2 more times
+  ΓÇó downloading     url=https://github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.6.0/winCodeSign-2.6.0.7z size=5.6 MB parts=1
+  ΓÇó downloaded      url=https://github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.6.0/winCodeSign-2.6.0.7z duration=1.321s
+  Γ¿» cannot execute  cause=exit status 2
+                    out=
+    7-Zip (a) 21.07 (x64) : Copyright (c) 1999-2021 Igor Pavlov : 2021-12-26
+    
+    Scanning the drive for archives:
+    1 file, 5635384 bytes (5504 KiB)
+    
+    Extracting archive: C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\092312999.7z
+    --
+    Path = C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\092312999.7z
+    Type = 7z
+    Physical Size = 5635384
+    Headers Size = 1492
+    Method = LZMA2:24m LZMA:20 BCJ2
+    Solid = +
+    Blocks = 2
+    
+    
+    Sub items Errors: 2
+    
+    Archives with Errors: 1
+    
+    Sub items Errors: 2
+    
+                    errorOut=ERROR: Cannot create symbolic link : A required privilege is not held by the client. : C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\092312999\darwin\10.12\lib\libcrypto.dylib
+    ERROR: Cannot create symbolic link : A required privilege is not held by the client. : C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\092312999\darwin\10.12\lib\libssl.dylib
+    
+                    command='C:\repo\develop\java-context-switcher\node_modules\7zip-bin\win\x64\7za.exe' x -bd 'C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\092312999.7z' '-oC:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\092312999'
+                    workingDir=C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign
+  ΓÇó Above command failed, retrying 1 more times
+  ΓÇó downloading     url=https://github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.6.0/winCodeSign-2.6.0.7z size=5.6 MB parts=1
+  ΓÇó downloaded      url=https://github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.6.0/winCodeSign-2.6.0.7z duration=1.385s
+  Γ¿» cannot execute  cause=exit status 2
+                    out=
+    7-Zip (a) 21.07 (x64) : Copyright (c) 1999-2021 Igor Pavlov : 2021-12-26
+    
+    Scanning the drive for archives:
+    1 file, 5635384 bytes (5504 KiB)
+    
+    Extracting archive: C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\037147431.7z
+    --
+    Path = C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\037147431.7z
+    Type = 7z
+    Physical Size = 5635384
+    Headers Size = 1492
+    Method = LZMA2:24m LZMA:20 BCJ2
+    Solid = +
+    Blocks = 2
+    
+    
+    Sub items Errors: 2
+    
+    Archives with Errors: 1
+    
+    Sub items Errors: 2
+    
+                    errorOut=ERROR: Cannot create symbolic link : A required privilege is not held by the client. : C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\037147431\darwin\10.12\lib\libcrypto.dylib
+    ERROR: Cannot create symbolic link : A required privilege is not held by the client. : C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\037147431\darwin\10.12\lib\libssl.dylib
+    
+                    command='C:\repo\develop\java-context-switcher\node_modules\7zip-bin\win\x64\7za.exe' x -bd 'C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\037147431.7z' '-oC:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign\037147431'
+                    workingDir=C:\Users\zharnish\AppData\Local\electron-builder\Cache\winCodeSign
+  ΓÇó Above command failed, retrying 0 more times

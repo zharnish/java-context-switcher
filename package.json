@@ -3,13 +3,43 @@
   "version": "1.0.0",
   "description": "Switch between Java versions via a localhost web UI",
   "private": true,
+  "main": "electron/dist/main.js",
   "scripts": {
     "dev": "concurrently --names \"backend,frontend\" --prefix-colors \"blue,green\" \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
-    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "electron:dev": "npm run build && electron .",
+    "dist": "npm run build && electron-builder",
+    "install:all": "npm install && npm install --prefix backend && npm install --prefix frontend",
     "test": "npm test --prefix backend && npm test --prefix frontend",
-    "build": "npm run build --prefix backend && npm run build --prefix frontend"
+    "build": "esbuild backend/src/server.ts --bundle --platform=node --target=node18 --format=cjs --outfile=backend/dist/server.js && npm run build --prefix frontend && tsc -p electron/tsconfig.json"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.21.0",
+    "electron": "^31.0.0",
+    "electron-builder": "^26.15.3",
+    "typescript": "^5.2.2"
+  },
+  "build": {
+    "appId": "com.zharnish.java-context-switcher",
+    "productName": "Java Context Switcher",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "electron/dist/**/*"
+    ],
+    "extraResources": [
+      { "from": "backend/dist", "to": "backend/dist", "filter": ["**/*"] },
+      { "from": "electron/assets", "to": "assets" }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "electron/assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }

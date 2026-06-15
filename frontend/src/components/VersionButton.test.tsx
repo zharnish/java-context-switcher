@@ -16,6 +16,7 @@ describe('VersionButton', () => {
         isSwitching={false}
         onSwitch={vi.fn()}
         onDelete={vi.fn()}
+        onEdit={vi.fn()}
       />
     );
     expect(screen.getByText('Java 21 LTS')).toBeInTheDocument();
@@ -29,6 +30,7 @@ describe('VersionButton', () => {
         isSwitching={false}
         onSwitch={vi.fn()}
         onDelete={vi.fn()}
+        onEdit={vi.fn()}
       />
     );
     const btn = screen.getByRole('button', { name: /switch to java 21 lts/i });
@@ -44,6 +46,7 @@ describe('VersionButton', () => {
         isSwitching={false}
         onSwitch={onSwitch}
         onDelete={vi.fn()}
+        onEdit={vi.fn()}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /switch to java 21 lts/i }));
@@ -58,6 +61,7 @@ describe('VersionButton', () => {
         isSwitching={true}
         onSwitch={vi.fn()}
         onDelete={vi.fn()}
+        onEdit={vi.fn()}
       />
     );
     expect(screen.getByRole('button', { name: /switch to java 21 lts/i })).toBeDisabled();
@@ -73,6 +77,7 @@ describe('VersionList', () => {
         switchingId={null}
         onSwitch={vi.fn()}
         onDelete={vi.fn()}
+        onEdit={vi.fn()}
       />
     );
     expect(screen.getByText(/no java versions configured/i)).toBeInTheDocument();
@@ -86,6 +91,7 @@ describe('VersionList', () => {
         switchingId={null}
         onSwitch={vi.fn()}
         onDelete={vi.fn()}
+        onEdit={vi.fn()}
       />
     );
     expect(screen.getByText('Java 21 LTS')).toBeInTheDocument();
@@ -100,6 +106,7 @@ describe('VersionList', () => {
         switchingId={null}
         onSwitch={vi.fn()}
         onDelete={vi.fn()}
+        onEdit={vi.fn()}
       />
     );
     expect(screen.getByRole('button', { name: /switch to java 21 lts/i })).toHaveClass('btn-primary');
