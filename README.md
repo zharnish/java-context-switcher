@@ -5,7 +5,7 @@ A UI that allows the user to quickly switch between Java Versions they need to b
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) v18 or higher (includes npm)
+- [Node.js](https://nodejs.org/) v24 or higher (includes npm)
 - [Git](https://git-scm.com/download/win)
 - Multiple Java JDK installations on your machine
 
