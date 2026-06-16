@@ -140,6 +140,10 @@ async function buildTrayMenu(): Promise<Menu> {
           click: async () => {
             try {
               await switchVersion(v.id);
+              // Modified by AI on 06/16/2026. Edit #2 - reload main window after tray switch so UI reflects new active version.
+              if (mainWindow && !mainWindow.isDestroyed()) {
+                mainWindow.webContents.reload();
+              }
             } catch (err) {
               console.error('Switch error:', (err as Error).message);
             }
