@@ -2,6 +2,7 @@
 
 import { Router, Request, Response } from 'express';
 import { readConfig, writeConfig } from '../services/configFile';
+import { logError } from '../services/logger';
 
 const router = Router();
 
@@ -14,7 +15,7 @@ router.get('/settings', (_req: Request, res: Response) => {
     const config = readConfig();
     res.json({ settings: config.settings });
   } catch (err) {
-    console.error('[settings GET] Failed to read settings:', (err as Error).message, err);
+    logError('settings GET', 'Failed to read settings', err);
     res.status(500).json({ error: 'Failed to read settings' });
   }
 });
@@ -43,7 +44,7 @@ router.put('/settings', (req: Request, res: Response) => {
     writeConfig(config);
     res.json({ settings: config.settings });
   } catch (err) {
-    console.error('[settings PUT] Failed to save settings:', (err as Error).message, err);
+    logError('settings PUT', 'Failed to save settings', err);
     res.status(500).json({ error: 'Failed to save settings' });
   }
 });

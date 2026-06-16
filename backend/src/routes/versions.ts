@@ -5,6 +5,7 @@ import { Router, Request, Response } from 'express';
 import * as fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
 import { readConfig, writeConfig } from '../services/configFile';
+import { logError } from '../services/logger';
 
 const router = Router();
 
@@ -18,7 +19,7 @@ router.get('/versions', (_req: Request, res: Response) => {
     const config = readConfig();
     res.json({ versions: config.versions, activeId: config.activeId ?? null });
   } catch (err) {
-    console.error('[versions GET] Failed to read versions:', (err as Error).message, err);
+    logError('versions GET', 'Failed to read versions', err);
     res.status(500).json({ error: 'Failed to read versions' });
   }
 });
@@ -58,7 +59,7 @@ router.post('/versions', (req: Request, res: Response) => {
     writeConfig(config);
     res.status(201).json({ version: newVersion });
   } catch (err) {
-    console.error('[versions POST] Failed to save version:', (err as Error).message, err);
+    logError('versions POST', 'Failed to save version', err);
     res.status(500).json({ error: 'Failed to save version' });
   }
 });
@@ -104,7 +105,7 @@ router.put('/versions/:id', (req: Request, res: Response) => {
     writeConfig(config);
     res.json({ version: config.versions[index] });
   } catch (err) {
-    console.error('[versions PUT] Failed to update version:', (err as Error).message, err);
+    logError('versions PUT', 'Failed to update version', err);
     res.status(500).json({ error: 'Failed to update version' });
   }
 });
@@ -121,7 +122,7 @@ router.delete('/versions/:id', (req: Request, res: Response) => {  const { id } 
     writeConfig(config);
     res.json({ success: true });
   } catch (err) {
-    console.error('[versions DELETE] Failed to delete version:', (err as Error).message, err);
+    logError('versions DELETE', 'Failed to delete version', err);
     res.status(500).json({ error: 'Failed to delete version' });
   }
 });

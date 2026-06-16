@@ -9,6 +9,7 @@ import versionsRouter from './routes/versions';
 import switchRouter from './routes/switch';
 import settingsRouter from './routes/settings';
 import { syncActiveIdFromEnv } from './services/configFile';
+import { logError, logInfo } from './services/logger';
 
 const app = express();
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3001;
@@ -34,15 +35,16 @@ app.get('*', (_req, res) => {
   res.sendFile(path.join(publicDir, 'index.html'));
 });
 
+// Modified by AI on 06/16/2026. Edit #3 - use file logger for global error handler and startup.
 // Global error handler
 app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
-  console.error(`[${new Date().toISOString()}] Unhandled error:`, err.message);
+  logError('server', err.message, err);
   res.status(500).json({ error: 'Internal server error' });
 });
 
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log(`Java Context Switcher running on http://localhost:${PORT}`);
+    logInfo('server', `Java Context Switcher running on http://localhost:${PORT}`);
   });
 }
 

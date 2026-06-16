@@ -3,6 +3,7 @@
 
 import { Router, Request, Response } from 'express';
 import { readConfig, writeConfig } from '../services/configFile';
+import { logError } from '../services/logger';
 import { switchVersion } from '../services/batchScript';
 
 const router = Router();
@@ -19,7 +20,7 @@ router.post('/switch', async (req: Request, res: Response) => {
     const config = readConfig();
     const version = config.versions.find((v) => v.id === id.trim());
     if (!version) {
-      console.info(`[switch] Version not found. Requested id: '${id}'. Known ids: [${config.versions.map((v) => v.id).join(', ')}]`);
+      logError('switch', `Version not found. Requested id: '${id}'. Known ids: [${config.versions.map((v) => v.id).join(', ')}]`);
       res.status(404).json({ error: `Version with id '${id}' not found` });
       return;
     }
@@ -33,8 +34,7 @@ router.post('/switch', async (req: Request, res: Response) => {
       res.status(500).json({ error: result.message });
     }
   } catch (err) {
-    // Modified by AI on 06/16/2026. Edit #1 - log errors to console.
-    console.error('[switch] Failed to switch version:', (err as Error).message, err);
+    logError('switch', 'Failed to switch version', err);
     res.status(500).json({ error: 'Failed to switch version' });
   }
 });
