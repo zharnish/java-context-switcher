@@ -19,6 +19,7 @@ router.post('/switch', async (req: Request, res: Response) => {
     const config = readConfig();
     const version = config.versions.find((v) => v.id === id.trim());
     if (!version) {
+      console.info(`[switch] Version not found. Requested id: '${id}'. Known ids: [${config.versions.map((v) => v.id).join(', ')}]`);
       res.status(404).json({ error: `Version with id '${id}' not found` });
       return;
     }
