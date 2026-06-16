@@ -21,13 +21,14 @@ const DEFAULT_CONFIG: ConfigData = {
   activeId: null,
 };
 
+// Modified by AI on 06/16/2026. Edit #3 - emit blank activeId without trailing space; validate UUID on parse.
 function serializeConfig(config: ConfigData): string {
   const lines: string[] = [
     '# Java Context Switcher Config',
     '',
     '## Settings',
     `- envVarName: ${config.settings.envVarName}`,
-    `- activeId: ${config.activeId ?? ''}`,
+    config.activeId ? `- activeId: ${config.activeId}` : '- activeId:',
     '',
     '## Versions',
   ];
@@ -58,7 +59,8 @@ function parseConfig(content: string): ConfigData {
   }
 
   const activeIdMatch = content.match(/- activeId:\s*(.*)/);
-  if (activeIdMatch && activeIdMatch[1].trim().length > 0) {
+  const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (activeIdMatch && UUID_PATTERN.test(activeIdMatch[1].trim())) {
     result.activeId = activeIdMatch[1].trim();
   }
 
