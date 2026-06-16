@@ -1,0 +1,6 @@
+node_modules
+backend/dist
+backend/node_modules
+dist-electron
+electron/dist
+frontend/node_modules

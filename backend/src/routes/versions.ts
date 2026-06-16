@@ -12,11 +12,13 @@ const INJECTION_PATTERN = /[&|;<>`$()'\n\r]/;
 const MAX_PATH_LENGTH = 260;
 const MAX_NAME_LENGTH = 100;
 
+// Modified by AI on 06/16/2026. Edit #2 - log errors to console in all catch blocks.
 router.get('/versions', (_req: Request, res: Response) => {
   try {
     const config = readConfig();
     res.json({ versions: config.versions, activeId: config.activeId ?? null });
   } catch (err) {
+    console.error('[versions GET] Failed to read versions:', (err as Error).message, err);
     res.status(500).json({ error: 'Failed to read versions' });
   }
 });
@@ -56,6 +58,7 @@ router.post('/versions', (req: Request, res: Response) => {
     writeConfig(config);
     res.status(201).json({ version: newVersion });
   } catch (err) {
+    console.error('[versions POST] Failed to save version:', (err as Error).message, err);
     res.status(500).json({ error: 'Failed to save version' });
   }
 });
@@ -101,6 +104,7 @@ router.put('/versions/:id', (req: Request, res: Response) => {
     writeConfig(config);
     res.json({ version: config.versions[index] });
   } catch (err) {
+    console.error('[versions PUT] Failed to update version:', (err as Error).message, err);
     res.status(500).json({ error: 'Failed to update version' });
   }
 });
@@ -117,6 +121,7 @@ router.delete('/versions/:id', (req: Request, res: Response) => {  const { id } 
     writeConfig(config);
     res.json({ success: true });
   } catch (err) {
+    console.error('[versions DELETE] Failed to delete version:', (err as Error).message, err);
     res.status(500).json({ error: 'Failed to delete version' });
   }
 });

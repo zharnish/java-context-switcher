@@ -8,11 +8,13 @@ const router = Router();
 const ENV_VAR_NAME_PATTERN = /^[A-Z_][A-Z0-9_]*$/;
 const MAX_ENV_VAR_LENGTH = 64;
 
+// Modified by AI on 06/16/2026. Edit #1 - log errors to console in all catch blocks.
 router.get('/settings', (_req: Request, res: Response) => {
   try {
     const config = readConfig();
     res.json({ settings: config.settings });
   } catch (err) {
+    console.error('[settings GET] Failed to read settings:', (err as Error).message, err);
     res.status(500).json({ error: 'Failed to read settings' });
   }
 });
@@ -41,6 +43,7 @@ router.put('/settings', (req: Request, res: Response) => {
     writeConfig(config);
     res.json({ settings: config.settings });
   } catch (err) {
+    console.error('[settings PUT] Failed to save settings:', (err as Error).message, err);
     res.status(500).json({ error: 'Failed to save settings' });
   }
 });

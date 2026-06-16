@@ -32,6 +32,8 @@ router.post('/switch', async (req: Request, res: Response) => {
       res.status(500).json({ error: result.message });
     }
   } catch (err) {
+    // Modified by AI on 06/16/2026. Edit #1 - log errors to console.
+    console.error('[switch] Failed to switch version:', (err as Error).message, err);
     res.status(500).json({ error: 'Failed to switch version' });
   }
 });
